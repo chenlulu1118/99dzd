@@ -50,7 +50,7 @@ $(function(){
 
     //注销账户
     $("#delete-account").click(function(){
-        $('#delete-account-modal').modal({
+        $('#delete-account-confirm').modal({
             relatedTarget: this,
             width: 300,
             onConfirm: function(){
@@ -121,7 +121,7 @@ $(function(){
 
     //删除当前客户
     $("#delete-detail").click(function(){
-        $('#delete-detail-modal').modal({
+        $('#delete-detail-confirm').modal({
             relatedTarget: this,
             width: 300,
             onConfirm: function(){
@@ -152,13 +152,27 @@ $(function(){
                });
     });
 
-    //转发按钮
+    //转发账单
+    var share_address = "";
     $('#share-btn').click(function(){
         $.post("/",
                {"share": ""},
                function(data){
-                   alert(data);
+                   share_address = data;
                });
+
+        $('#share-modal').modal({
+            relatedTarget: this,
+            width: 300
+        });
+    });
+
+    $('#share-modal').on('open.modal.amui', function(){
+        $('#share-qrcode').empty().qrcode(share_address);
+    });
+
+    $('#share-modal').on('close.modal.amui', function(){
+        share_address = "";
     });
 
     //客户列表为空时，禁用表格相关按钮
