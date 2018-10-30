@@ -82,31 +82,35 @@
         <div class="tpl-content-wrapper">
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
-                    <span id="current_detail" data-detail-name="{{ datas['current_detail'] }}" class="caption bold" style="color: #337ab7;">
+                    <div id="current_detail" data-detail-name="{{ datas['current_detail'] }}" class="caption bold" style="color: #337ab7; float: left;">
                         {% if datas['current_detail'] == "" %}
                             小久久
                         {% else %}
                             {{ datas['current_detail'] }}
                         {% endif %}
-                    </span>
+                    </div>
 
-                    <span >
+                    <div >
                         <i class="am-icon-chevron-right" style="color: #485a6a; margin-left: 8px; margin-top: 8px; float: left;"></i>
-                    </span>
+                    </div>
 
-                    <span style="margin-left: 8px;">
-                        <select data-am-selected="{searchBox: 1, btnWidth: '150px', maxHeight: 130}">
-                            {% for section_info in section_infos %}
-                                {% if section_info['section_id'] == datas['current_section'] %}
-                                    <option value="{{ section_info['section_id'] }}" selected>{{ section_info['clear_date'] }}</option>
-                                {% else %}
-                                    <option value="{{ section_info['section_id'] }}">{{ section_info['clear_date'] }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                    </span>
+                    {% if section_infos != []  and statements == [] %}
+                        <div class="am-animation-shake" style="margin-left: 8px; float: left;">
+                    {% else %}
+                        <div style="margin-left: 8px; float: left;">
+                    {% endif %}
+                            <select data-am-selected="{searchBox: 1, btnWidth: '150px', maxHeight: 130}">
+                                {% for section_info in section_infos %}
+                                    {% if section_info['section_id'] == datas['current_section'] %}
+                                        <option value="{{ section_info['section_id'] }}" selected>{{ section_info['clear_date'] }}</option>
+                                    {% else %}
+                                        <option value="{{ section_info['section_id'] }}">{{ section_info['clear_date'] }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
 
-                    <span style="margin-left: 8px;">
+                    <div style="margin-top: 2px; margin-left: 8px; float: left;">
                         {% if statements == [] %}
                             <button id="share-btn" type="button" class="am-btn am-btn-primary am-btn-sm"  disabled="disabled">
                         {% else %}
@@ -114,9 +118,9 @@
                         {% endif %}
                                 <i class="am-icon-paper-plane-o"></i> 转发此账单
                             </button>
-                    </span>
+                    </div>
 
-                    <span class="am-dropdown am-dropdown-flip" style="float: right;" data-am-dropdown>
+                    <div class="am-dropdown am-dropdown-flip" style="margin-top: 3px; float: right;" data-am-dropdown>
                         <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle table-btn">
                             <span class="am-icon-cog"></span> 设置
                         </button>
@@ -130,7 +134,7 @@
                                 <a><span class="am-icon-trash"></span> 删除客户</a>
                             </li>
                         </ul>
-                    </span>
+                    </div>
                 </div>
 
                 <div class="tpl-block">
@@ -288,7 +292,7 @@
             <div class="am-modal-hd">扫描以下二维码即可转发账单：</div>
 
             <div class="am-modal-bd">
-                <div id="share-qrcode" class="am-text-center"></div>
+                <div id="share-qrcode"></div>
             </div>
 
             <div class="am-modal-footer">
