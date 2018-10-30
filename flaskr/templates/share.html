@@ -39,7 +39,7 @@
                                         <small style="color:#5eb95e;">{{ statement['quantity'] }}×</small>
                                         <small style="color:#a7bdcd;"> {{ statement['price'] }}</small></h2>
                                     </td>
-                                    <td class="am-text-middle"><h1 style="margin: 0;">{{ statement['total'] }}</h1></td>
+                                    <td class="am-text-middle"><h2 style="margin: 0;">{{ statement['total'] }}</h2></td>
                                 </tr>
                             {% endif %}
 
@@ -54,7 +54,7 @@
                                         <small style="color:#dd514c;">-{{ statement['quantity'] }}×</small>
                                         <small style="color:#a7bdcd;"> {{ statement['price'] }}</small></h2>
                                     </td>
-                                    <td class="am-text-middle"><h1 style="margin: 0;">-{{ statement['total'] }}</h1></td>
+                                    <td class="am-text-middle"><h2 style="margin: 0;">-{{ statement['total'] }}</h2></td>
                                 </tr>
                             {% endif %}
 
@@ -67,7 +67,7 @@
                                     <td class="am-text-middle">
                                         <h2 class="am-text-left" style="color:#485a6a; margin: 0;">{{ statement['product_id'] }}</h2>
                                     </td>
-                                    <td class="am-text-middle"><h1 style="margin: 0;">-{{ statement['total'] }}</h1></td>
+                                    <td class="am-text-middle"><h2 style="margin: 0;">-{{ statement['total'] }}</h2></td>
                                 </tr>
                             {% endif %}
                         {% endfor %}
