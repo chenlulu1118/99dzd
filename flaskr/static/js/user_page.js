@@ -159,12 +159,11 @@ $(function(){
                {"share": ""},
                function(data){
                    share_address = data;
+                   $('#share-modal').modal({
+                       relatedTarget: this,
+                       width: 300
+                   });
                });
-
-        $('#share-modal').modal({
-            relatedTarget: this,
-            width: 300
-        });
     });
 
     $('#share-modal').on('open.modal.amui', function(){
