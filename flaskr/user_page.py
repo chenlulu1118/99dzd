@@ -206,8 +206,6 @@ def user_page():
              'current_section': session['current_section'],
              'sum': sum}
 
-    print(statements)
-
     return render_template('user_page.html', details = details,
                                         section_infos = section_infos,
                                         statements = statements,
