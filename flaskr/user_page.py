@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, session, g, redirect, render_template, request, url_for
+    Blueprint, session, g, redirect, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
 from decimal import Decimal

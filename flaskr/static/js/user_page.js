@@ -351,6 +351,7 @@ $(function(){
         } else {
             $('#clear-confirm').modal({
                 relatedTarget: this,
+                width: 500,
                 onConfirm: function(){
                     $('#product-id').val('结账（结清）');
                     $('#is-clear').val('true');
