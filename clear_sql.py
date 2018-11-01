@@ -9,7 +9,7 @@ con = sqlite3.connect('/home/admin/99dzd/instance/flaskr.sqlite', detect_types=s
 con.row_factory = sqlite3.Row
 cursor = con.cursor()
 
-now = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()+48*60*60))
+now = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
 share_pages = cursor.execute('select address from share_page where deadline < ?', (now,)).fetchall()
 
 cursor.execute('PRAGMA foreign_keys = ON')
